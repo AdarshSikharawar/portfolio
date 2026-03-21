@@ -43,8 +43,9 @@ const Contact = () => {
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setLoading(true);
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
-      await axios.post(`${apiUrl}/api/contact`, form);
+      //const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      // await axios.post(`${apiUrl}/api/contact`, form);
+      await axios.post("/api/contact", form);
       toast.success('Message Sent! Thanks for reaching out 🎉', {
         style: { background: '#16a34a', color: '#fff', fontWeight: '500', borderRadius: '10px', padding: '12px 18px' },
         duration: 4000,
