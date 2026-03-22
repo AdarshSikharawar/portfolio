@@ -43,7 +43,8 @@ const Contact = () => {
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setLoading(true);
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      // Hardcoding Render URL to completely bypass Vercel env variable issues
+      const apiUrl = 'https://adarsh-portfolio-ld10.onrender.com';
       await axios.post(`${apiUrl}/api/contact`, form);
 
       toast.success('Message Sent! Thanks for reaching out 🎉', {
