@@ -4,6 +4,9 @@ import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
 import { FiSend, FiUser, FiMail, FiMessageSquare, FiPhone } from 'react-icons/fi';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
+import emailjs from '@emailjs/browser';
+import { db } from '../firebase';
+import { collection, addDoc } from 'firebase/firestore';
 
 const socialLinks = [
   { icon: FaGithub, label: 'GitHub', url: 'https://github.com' },
@@ -43,9 +46,32 @@ const Contact = () => {
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setLoading(true);
     try {
-      // Hardcoding Render URL to completely bypass Vercel env variable issues
-      const apiUrl = 'https://adarsh-portfolio-ld10.onrender.com';
-      await axios.post(`${apiUrl}/api/contact`, form);
+      // Hardcoding Render URL to completely bypass Vercel env variable issu
+      // const apiUrl = 'https://adarsh-portfolio-ld10.onrender.com';
+      // await axios.post(`${apiUrl}/api/contact`, form);
+
+      // Save to Firebase Firestore
+      await addDoc(collection(db, "contacts"), {
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        message: form.message,
+        timestamp: new Date()
+      });
+
+      // Send email via EmailJS
+      await emailjs.send(
+        'YOUR_SERVICE_ID', // Replace with your EmailJS Service ID
+        'YOUR_TEMPLATE_ID', // Replace with your EmailJS Template ID
+        {
+          from_name: form.name,
+          to_name: 'Adarsh',
+          from_email: form.email,
+          phone: form.phone,
+          message: form.message,
+        },
+        'YOUR_PUBLIC_KEY' // Replace with your EmailJS Public Key
+      );
 
       toast.success('Message Sent! Thanks for reaching out 🎉', {
         style: { background: '#16a34a', color: '#fff', fontWeight: '500', borderRadius: '10px', padding: '12px 18px' },
