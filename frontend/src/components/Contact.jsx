@@ -61,8 +61,8 @@ const Contact = () => {
 
       // Send email via EmailJS
       await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS Service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS Template ID
+        'service_fb83avd', // Replace with your EmailJS Service ID
+        'template_q3jc1t8', // Replace with your EmailJS Template ID
         {
           from_name: form.name,
           to_name: 'Adarsh',
@@ -70,7 +70,7 @@ const Contact = () => {
           phone: form.phone,
           message: form.message,
         },
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS Public Key
+        'dBj0O_Cj3BdkaR7Sj' // Replace with your EmailJS Public Key
       );
 
       toast.success('Message Sent! Thanks for reaching out 🎉', {
