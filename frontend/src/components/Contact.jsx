@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
 import { FiSend, FiUser, FiMail, FiMessageSquare, FiPhone } from 'react-icons/fi';
-import axios from 'axios';
+// import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 import emailjs from '@emailjs/browser';
 import { db } from '../firebase';
@@ -189,7 +189,7 @@ const Contact = () => {
                 name="phone"
                 value={form.phone}
                 onChange={handleChange}
-                placeholder="+91 98765 43210"
+                placeholder="+91 98765 xxx"
                 className={`form-input ${errors.phone ? 'error' : ''}`}
               />
               {errors.phone && <p className="text-white/40 text-[11px] mt-1">{errors.phone}</p>}
