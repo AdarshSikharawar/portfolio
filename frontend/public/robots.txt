@@ -1,0 +1,12 @@
+# robots.txt — Adarsh Sikharawar Portfolio
+# https://adarshsikharawar.vercel.app/
+
+# Allow all legitimate search engine crawlers
+User-agent: *
+Allow: /
+
+# Disallow backend API routes (handled server-side, not useful to crawl)
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://adarshsikharawar.vercel.app/sitemap.xml

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!--
+    Sitemap for: Adarsh Sikharawar Portfolio
+    Website: https://adarshsikharawar.vercel.app/
+    This is a single-page application (SPA). All sections are on the homepage.
+    Anchor-based section links are included as alternates for context.
+  -->
+
+  <!-- Homepage (canonical root) -->
+  <url>
+    <loc>https://adarshsikharawar.vercel.app/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+</urlset>

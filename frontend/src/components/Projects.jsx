@@ -101,13 +101,14 @@ const ProjectCard = ({ project, index }) => {
         {showImage ? (
           <img
             src={project.image}
-            alt={project.title}
+            alt={`Screenshot of ${project.title} — a project by Adarsh Sikharawar`}
             onError={() => setImgError(true)}
             className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
             style={{ transform: hovered ? 'scale(1.04)' : 'scale(1)', transition: 'transform 0.4s ease' }}
+            loading="lazy"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-5xl opacity-30">
+          <div className="w-full h-full flex items-center justify-center text-5xl opacity-30" role="img" aria-label={`${project.title} project icon`}>
             {project.emoji}
           </div>
         )}
@@ -123,13 +124,15 @@ const ProjectCard = ({ project, index }) => {
         <div className="flex items-start justify-between mb-3">
           <h3 className="font-['Space_Grotesk'] text-sm font-bold text-white leading-tight">{project.title}</h3>
           <div className="flex gap-1.5 ml-2 shrink-0">
-            <a href={project.github} target="_blank" rel="noreferrer"
+            <a href={project.github} target="_blank" rel="noopener noreferrer"
+              aria-label={`View ${project.title} source code on GitHub`}
               className="p-1.5 rounded-lg bg-white/[0.04] border border-white/10 text-white/40 hover:text-white transition-colors">
-              <FaGithub size={13} />
+              <FaGithub size={13} aria-hidden="true" />
             </a>
-            <a href={project.live} target="_blank" rel="noreferrer"
+            <a href={project.live} target="_blank" rel="noopener noreferrer"
+              aria-label={`View ${project.title} live demo`}
               className="p-1.5 rounded-lg bg-white/[0.04] border border-white/10 text-white/40 hover:text-white transition-colors">
-              <FaExternalLinkAlt size={13} />
+              <FaExternalLinkAlt size={13} aria-hidden="true" />
             </a>
           </div>
         </div>

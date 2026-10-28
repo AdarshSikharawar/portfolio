@@ -9,10 +9,10 @@ import { db } from '../firebase';
 import { collection, addDoc } from 'firebase/firestore';
 
 const socialLinks = [
-  { icon: FaGithub, label: 'GitHub', url: 'https://github.com' },
-  { icon: FaLinkedin, label: 'LinkedIn', url: 'https://linkedin.com' },
-  { icon: FaTwitter, label: 'Twitter', url: 'https://twitter.com' },
-  { icon: FaEnvelope, label: 'Email', url: 'mailto:adarshsikarawar63@gmail.com' },
+  { icon: FaGithub,   label: 'GitHub',   url: 'https://github.com/AdarshSikharawar',       ariaLabel: 'GitHub profile of Adarsh Sikharawar' },
+  { icon: FaLinkedin, label: 'LinkedIn', url: 'https://linkedin.com/in/adarshsikharawar',   ariaLabel: 'LinkedIn profile of Adarsh Sikharawar' },
+  { icon: FaTwitter,  label: 'Twitter',  url: 'https://twitter.com/adarshsikharawar',       ariaLabel: 'Twitter profile of Adarsh Sikharawar' },
+  { icon: FaEnvelope, label: 'Email',    url: 'mailto:adarshsikarawar63@gmail.com',         ariaLabel: 'Send email to Adarsh Sikharawar' },
 ];
 
 const Contact = () => {
@@ -111,17 +111,18 @@ const Contact = () => {
             </p>
 
             <div className="flex flex-col gap-3 mb-8">
-              {socialLinks.map(({ icon: Icon, label, url }) => (
+              {socialLinks.map(({ icon: Icon, label, url, ariaLabel }) => (
                 <motion.a
                   key={label}
                   href={url}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
+                  aria-label={ariaLabel}
                   className="card-elevated rounded-xl p-4 flex items-center gap-3 hover:border-white/20 transition-colors"
                   whileHover={{ x: 4 }}
                 >
                   <div className="w-8 h-8 rounded-lg bg-white/[0.06] flex items-center justify-center text-white/50">
-                    <Icon size={15} />
+                    <Icon size={15} aria-hidden="true" />
                   </div>
                   <span className="text-white/60 text-sm font-medium">{label}</span>
                   <span className="ml-auto text-white/20 text-xs">→</span>

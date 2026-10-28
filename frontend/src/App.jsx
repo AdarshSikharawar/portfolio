@@ -130,7 +130,9 @@ function App() {
 
           {/* App shell */}
           <div className="relative z-[1] min-h-screen bg-transparent text-white">
-            <Navbar />
+            <header>
+              <Navbar />
+            </header>
 
             <main>
               <Hero />

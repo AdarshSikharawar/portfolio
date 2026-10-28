@@ -106,18 +106,19 @@ const Resume = () => {
           transition={{ delay: 0.4 }}
         >
           {[
-            { icon: FaGithub, label: 'GitHub', url: 'https://github.com' },
-            { icon: FaLinkedin, label: 'LinkedIn', url: 'https://linkedin.com' },
-            { icon: FaEnvelope, label: 'Email', url: 'mailto:adarsh@email.com' },
-          ].map(({ icon: Icon, label, url }) => (
+            { icon: FaGithub,   label: 'GitHub',   url: 'https://github.com/AdarshSikharawar',     ariaLabel: 'GitHub profile of Adarsh Sikharawar' },
+            { icon: FaLinkedin, label: 'LinkedIn', url: 'https://linkedin.com/in/adarshsikharawar', ariaLabel: 'LinkedIn profile of Adarsh Sikharawar' },
+            { icon: FaEnvelope, label: 'Email',    url: 'mailto:adarshsikarawar63@gmail.com',       ariaLabel: 'Send email to Adarsh Sikharawar' },
+          ].map(({ icon: Icon, label, url, ariaLabel }) => (
             <a
               key={label}
               href={url}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
+              aria-label={ariaLabel}
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/[0.03] border border-white/10 text-white/40 hover:text-white hover:border-white/25 text-xs transition-all"
             >
-              <Icon size={13} />
+              <Icon size={13} aria-hidden="true" />
               {label}
             </a>
           ))}

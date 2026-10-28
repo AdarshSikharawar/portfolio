@@ -94,20 +94,21 @@ const Hero = () => (
         </div>
 
         {/* Social icons */}
-        <div className="flex gap-3">
+        <div className="flex gap-3" role="list" aria-label="Social profiles of Adarsh Sikharawar">
           {[
-            { icon: FaGithub, url: 'https://github.com', label: 'GitHub' },
-            { icon: FaLinkedin, url: 'https://linkedin.com', label: 'LinkedIn' },
+            { icon: FaGithub, url: 'https://github.com/AdarshSikharawar', label: 'GitHub profile of Adarsh Sikharawar' },
+            { icon: FaLinkedin, url: 'https://linkedin.com/in/adarshsikharawar', label: 'LinkedIn profile of Adarsh Sikharawar' },
           ].map(({ icon: Icon, url, label }) => (
             <motion.a
               key={label}
               href={url}
+              aria-label={label}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="p-2.5 rounded-lg bg-white/[0.04] border border-white/10 text-white/50 hover:text-white hover:border-white/25 transition-all duration-200"
               whileHover={{ scale: 1.05 }}
             >
-              <Icon size={18} />
+              <Icon size={18} aria-hidden="true" />
             </motion.a>
           ))}
         </div>

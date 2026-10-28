@@ -68,14 +68,17 @@ const Navbar = () => {
             onClick={toggleTheme}
             className="p-2 rounded-lg bg-white/[0.04] border border-white/10 text-white/40 hover:text-white transition-colors text-sm"
             title="Toggle theme"
+            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
           >
-            {isDark ? <FiSun size={15} /> : <FiMoon size={15} />}
+            {isDark ? <FiSun size={15} aria-hidden="true" /> : <FiMoon size={15} aria-hidden="true" />}
           </button>
           <button
             className="md:hidden p-2 rounded-lg bg-white/[0.04] border border-white/10 text-white/60"
             onClick={() => setMenuOpen(v => !v)}
+            aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={menuOpen}
           >
-            {menuOpen ? <FiX size={15} /> : <FiMenu size={15} />}
+            {menuOpen ? <FiX size={15} aria-hidden="true" /> : <FiMenu size={15} aria-hidden="true" />}
           </button>
         </div>
       </div>

@@ -28,9 +28,9 @@ const MediaThumb = ({ item, onClick, index }) => (
   >
     <div className="aspect-video bg-[#0d0d0d] border-b border-white/[0.05] flex items-center justify-center relative overflow-hidden">
       {item.image ? (
-        <img src={item.image} alt={item.title} className="w-full h-full object-cover object-top" />
+        <img src={item.image} alt={`${item.title} — Adarsh Sikharawar project screenshot`} className="w-full h-full object-cover object-top" loading="lazy" />
       ) : (
-        <span className="text-4xl opacity-50">{item.emoji}</span>
+        <span className="text-4xl opacity-50" role="img" aria-label={item.title}>{item.emoji}</span>
       )}
       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
         <FiMaximize className="text-white/80" size={20} />
@@ -60,9 +60,9 @@ const Modal = ({ item, onClose }) => (
     >
       <div className="aspect-video bg-[#0d0d0d] flex items-center justify-center overflow-hidden">
         {item.image ? (
-          <img src={item.image} alt={item.title} className="w-full h-full object-cover object-top" />
+          <img src={item.image} alt={`${item.title} — Adarsh Sikharawar project screenshot`} className="w-full h-full object-cover object-top" loading="lazy" />
         ) : (
-          <span className="text-8xl opacity-40">{item.emoji}</span>
+          <span className="text-8xl opacity-40" role="img" aria-label={item.title}>{item.emoji}</span>
         )}
       </div>
       <div className="p-5 flex items-center justify-between">
@@ -119,9 +119,9 @@ const Media = () => {
                 <div className="card rounded-xl overflow-hidden cursor-pointer group" onClick={() => setSelected(item)}>
                   <div className="aspect-video bg-[#0d0d0d] flex items-center justify-center relative border-b border-white/[0.05] overflow-hidden">
                     {item.image ? (
-                      <img src={item.image} alt={item.title} className="w-full h-full object-cover object-top" />
+                      <img src={item.image} alt={`${item.title} — Adarsh Sikharawar project screenshot`} className="w-full h-full object-cover object-top" loading="lazy" />
                     ) : (
-                      <span className="text-4xl opacity-40">{item.emoji}</span>
+                      <span className="text-4xl opacity-40" role="img" aria-label={item.title}>{item.emoji}</span>
                     )}
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                       <FiMaximize className="text-white/70" size={18} />
